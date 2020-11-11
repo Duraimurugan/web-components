@@ -1,0 +1,19 @@
+<script>
+    class MyCustomElement extends HTMLElement {
+        constructor() {
+            super();
+            console.log('element created in DOM');
+            this.addEventListener('click', () => {
+                alert('this fires...');
+            });
+        }
+
+        connectedCallback() {
+            console.log('attached to DOM');
+            this.innerHTML = '<h1>Hello world</h1>';
+        }
+    }
+
+    window.customElements.define('my-custom-element', MyCustomElement);
+</script>
+<my-custom-element></my-custom-element>
